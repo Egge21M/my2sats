@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
 import ShareButtons from "./ShareButtons";
+import TipBox from "./TipBox";
 
 const components = {
   h1: (props: any) => (
@@ -87,6 +88,7 @@ async function BlogPost({ nevent }: BlogPostProps) {
             if (i === 1) {
               return (
                 <>
+                  <TipBox />
                   <MDXRemote
                     source={part.join("\n")}
                     components={components}
