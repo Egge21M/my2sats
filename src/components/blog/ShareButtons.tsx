@@ -22,7 +22,7 @@ function ShareButtons({ nevent }: ShareButtonsProps) {
   return (
     <div className="flex flex-col w-full gap-2 max-w-sm">
       <a
-        className="flex py-2 px-4 duration-1000 bg-cyan-500 hover:bg-red-600 items-center gap-2 justify-center rounded text-white"
+        className="flex py-2 px-4 duration-1000 bg-cyan-600 hover:bg-red-600 items-center gap-2 justify-center rounded text-white"
         href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
           `${process.env["HOSTNAME"]}/blog/${nevent}`,
         )}`}

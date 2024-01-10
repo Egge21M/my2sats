@@ -12,7 +12,7 @@ type BlogEntryProps = {
 
 export async function generateStaticParams() {
   const [events, relays] = await getAllPosts(
-    "d8a2c33f2e2ff3a9d4ff2a5593f3d5a59e9167fa5ded063d0e49891776611e0c",
+    "ddf03aca85ade039e6742d5bef3df352df199d0d31e22b9858e7eda85cb3bbbe",
   );
   return events.map((event) => ({
     nevent: nip19.neventEncode({ id: event.id, relays }),

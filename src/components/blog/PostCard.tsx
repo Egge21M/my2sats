@@ -30,7 +30,7 @@ function PostCard({ event, relays }: PostCardProps) {
           )}
         </div>
         <div>
-          <p className="text-zinc-700 text-xs">
+          <p className="text-zinc-400 italic text-xs">
             {new Date(event.created_at * 1000).toDateString()}
           </p>
           <p className="font-bold text-orange-500 ">{title}</p>
