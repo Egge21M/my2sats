@@ -11,7 +11,9 @@ export const metadata: Metadata = {
   referrer: "origin-when-cross-origin",
   keywords: ["Bitcoin", "Lightning", "Egge"],
   openGraph: {
-    images: ["https://i.current.fyi/image/jibunai/home.png"],
+    images: [
+      "https://image.nostr.build/88ab767704068c189402e41ad6421f89681ca239772f3ee55f29a64912888147.png",
+    ],
     url: "https://my2sats.space",
     description: "A blog about Bitcoin and freedom tech",
   },
@@ -19,7 +21,9 @@ export const metadata: Metadata = {
     title: "my2sats",
     description: "A blog about Bitcoin and freedom tech",
     creator: "@Egge21M",
-    images: ["https://i.current.fyi/image/jibunai/home.png"], // Must be an absolute URL
+    images: [
+      "https://image.nostr.build/88ab767704068c189402e41ad6421f89681ca239772f3ee55f29a64912888147.png",
+    ],
   },
 };
 
