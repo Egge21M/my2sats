@@ -19,9 +19,15 @@ async function getSinglePosts(nevent: Nevent): Promise<Event | undefined> {
   const {
     data: { id, relays },
   } = nip19.decode(nevent);
-  const event = await pool.get(relays || ["wss://relay.damus.io"], {
-    ids: [id],
-  });
+  const relayList =
+    relays && relays.length > 0 ? relays : ["wss://relay.damus.io"];
+  const event = await pool.get(
+    relayList,
+    {
+      ids: [id],
+    },
+    { maxWait: 2500 },
+  );
   if (!event) {
     return undefined;
   }
@@ -34,6 +40,42 @@ export function getTagValue(e: Event, tagName: string, position: number) {
       return e.tags[i][position];
     }
   }
+}
+
+export function getTagValues(e: Event, tagName: string, position: number) {
+  const tagValues: string[] = [];
+  for (let i = 0; i < e.tags.length; i++) {
+    if (e.tags[i][0] === tagName) {
+      tagValues.push(e.tags[1][position]);
+    }
+  }
+  return tagValues.length > 0 ? tagValues : undefined;
+}
+
+export function getPostMetadata(e: Event) {
+  const postMetadata: {
+    image?: string;
+    title?: string;
+    summary?: string;
+    hashtags?: string[];
+  } = {};
+  const image = getTagValue(e, "image", 1);
+  const title = getTagValue(e, "title", 1);
+  const summary = getTagValue(e, "summary", 1);
+  const hashtags = getTagValues(e, "t", 1);
+  if (image) {
+    postMetadata.image = image;
+  }
+  if (title) {
+    postMetadata.title = title;
+  }
+  if (summary) {
+    postMetadata.summary = summary;
+  }
+  if (hashtags) {
+    postMetadata.hashtags = hashtags;
+  }
+  return postMetadata;
 }
 
 export const getSinglePost = cache(getSinglePosts);

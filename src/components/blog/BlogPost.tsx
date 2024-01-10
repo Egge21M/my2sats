@@ -60,7 +60,6 @@ function parseContent(content: string) {
     pieces.push(firstPart);
     pieces.push(secondPart);
   }
-  console.log(pieces);
   return pieces;
 }
 
@@ -70,7 +69,7 @@ type BlogPostProps = {
 
 async function BlogPost({ nevent }: BlogPostProps) {
   const event = await getSinglePost(nevent);
-  if (!event) {
+  if (!event || event.pubkey !== authorData.pubkey) {
     notFound();
   }
 
