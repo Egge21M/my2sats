@@ -22,7 +22,7 @@ function TipBox() {
         </div>
         <div className="flex justify-center items-center">
           <button
-            className="bg-orange-500 rounded py-2 px-4"
+            className="bg-orange-600 rounded py-2 px-4"
             onClick={() => {
               setModalOpen(true);
             }}
