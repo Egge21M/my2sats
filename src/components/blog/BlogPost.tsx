@@ -37,7 +37,7 @@ const components = {
     </span>
   ),
   pre: (props: any) => (
-    <pre className="overflow-scroll p-2 bg-zinc-900 rounded my-2">
+    <pre className="overflow-x-scroll p-2 bg-zinc-900 rounded my-2">
       <code {...props} className="text-zinc-200 font-mono">
         {props.children}
       </code>
