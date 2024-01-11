@@ -10,7 +10,6 @@ import TipBox from "./TipBox";
 
 const options = {
   mdxOptions: {
-    remarkPlugins: [],
     rehypePlugins: [rehypeHighlight],
   },
 };
@@ -102,6 +101,7 @@ async function BlogPost({ nevent }: BlogPostProps) {
                     source={part.join("\n")}
                     components={components}
                     key={i}
+                    //@ts-ignore
                     options={options}
                   />
                 </>
@@ -112,6 +112,7 @@ async function BlogPost({ nevent }: BlogPostProps) {
                   source={part.join("\n")}
                   components={components}
                   key={i}
+                  //@ts-ignore
                   options={options}
                 />
               );
