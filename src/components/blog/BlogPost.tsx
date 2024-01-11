@@ -16,14 +16,19 @@ const options = {
 
 const components = {
   h1: (props: any) => (
-    <h1 {...props} className="text-4xl text-white my-2">
+    <h1 {...props} className="text-4xl font-bold text-white my-2">
       {props.children}
     </h1>
   ),
   h2: (props: any) => (
-    <h2 {...props} className="text-4xl text-white my-2">
+    <h2 {...props} className="text-3xl font-bold text-white my-2">
       {props.children}
     </h2>
+  ),
+  h3: (props: any) => (
+    <h3 {...props} className="text-2xl font-semibold text-white my-2">
+      {props.children}
+    </h3>
   ),
   strong: (props: any) => (
     <strong {...props} className="font-bold">
