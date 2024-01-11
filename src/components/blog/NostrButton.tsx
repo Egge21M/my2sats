@@ -43,7 +43,7 @@ function NostrButton({ nostr, setNostr, nevent }: NostrButtonProps) {
         created_at: Math.floor(Date.now() / 1000),
         kind: 1,
         tags: [],
-        content: `Check out this post! ${process.env["HOSTNAME"]}/blog/${nevent}`,
+        content: `Check out this post! ${process.env["NEXT_PUBLIC_HOSTNAME"]}/blog/${nevent}`,
       });
       try {
         const relays = await window.nostr.getRelays();
