@@ -4,7 +4,6 @@ import {
   getAllPosts,
   getPostMetadata,
   getSinglePost,
-  getTagValue,
 } from "@/utils/blog/posts";
 import { Metadata } from "next";
 import { nip19 } from "nostr-tools";

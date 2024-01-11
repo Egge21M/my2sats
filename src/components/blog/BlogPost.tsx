@@ -1,10 +1,19 @@
-import { authorData, getSinglePost, getTagValue } from "@/utils/blog/posts";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import rehypeHighlight from "rehype-highlight";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import React from "react";
+
 import ShareButtons from "./ShareButtons";
+import { authorData, getSinglePost, getTagValue } from "@/utils/blog/posts";
 import TipBox from "./TipBox";
+
+const options = {
+  mdxOptions: {
+    remarkPlugins: [],
+    rehypePlugins: [rehypeHighlight],
+  },
+};
 
 const components = {
   h1: (props: any) => (
@@ -93,6 +102,7 @@ async function BlogPost({ nevent }: BlogPostProps) {
                     source={part.join("\n")}
                     components={components}
                     key={i}
+                    options={options}
                   />
                 </>
               );
@@ -102,6 +112,7 @@ async function BlogPost({ nevent }: BlogPostProps) {
                   source={part.join("\n")}
                   components={components}
                   key={i}
+                  options={options}
                 />
               );
             }
