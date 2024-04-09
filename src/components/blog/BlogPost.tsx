@@ -36,10 +36,16 @@ const components = {
     </strong>
   ),
   p: (props: any) => (
-    <p {...props} className="my-1">
+    <p {...props} className="my-2 break-words">
       {props.children}
     </p>
   ),
+  a: (props: any) => (
+    <a {...props} className="text-orange-500">
+      {props.children}
+    </a>
+  ),
+  hr: () => <hr className="my-2" />,
   blockquote: (props: any) => (
     <blockquote {...props} className="italic !text-zinc-400">
       {props.children}
@@ -73,6 +79,8 @@ function parseContent(content: string) {
     const secondPart = lines.slice(h2s[1].line);
     pieces.push(firstPart);
     pieces.push(secondPart);
+  } else {
+    pieces.push(lines);
   }
   return pieces;
 }
